@@ -2,4 +2,5 @@
 resolver = "2"
 members = [
     "cirious_codex_term",
+    "cirious_codex_result",
 ]
