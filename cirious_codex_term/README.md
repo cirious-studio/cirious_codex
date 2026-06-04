@@ -23,7 +23,7 @@ Designed to be the ultimate bedrock for CLI tools within the Cirious ecosystem, 
 The architecture is currently being mapped out for the initial `v0.1` release:
 
 - [x] Core color manipulation (16 colors, 256 colors, TrueColor RGB).
-- [ ] Text formatting traits (Bold, Italic, Blink, Dim, etc.).
+- [x] Text formatting traits (Bold, Italic, Blink, Dim, etc.).
 - [ ] Absolute and relative cursor positioning.
 - [ ] Screen manipulation and clearing.
 
