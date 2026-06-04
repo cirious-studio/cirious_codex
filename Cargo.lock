@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "codex_term"
+name = "cirious_codex_term"
 version = "0.1.0"
