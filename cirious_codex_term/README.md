@@ -24,8 +24,8 @@ The architecture is currently being mapped out for the initial `v0.1` release:
 
 - [x] Core color manipulation (16 colors, 256 colors, TrueColor RGB).
 - [x] Text formatting traits (Bold, Italic, Blink, Dim, etc.).
-- [ ] Absolute and relative cursor positioning.
-- [ ] Screen manipulation and clearing.
+- [x] Absolute and relative cursor positioning.
+- [x] Screen manipulation and clearing.
 
 ---
 
