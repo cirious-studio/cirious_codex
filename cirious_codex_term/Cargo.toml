@@ -2,9 +2,13 @@
 name = "cirious_codex_term"
 version = "0.1.0"
 authors = ["Cirious Studio <cirious.studio@proton.me>"]
-license = "MIT OR Apache-2.0"
 edition = "2021"
 description = "Next-generation native ANSI terminal control and formatting."
-repository = "https://github.com/Cirious-Studio/cirious_codex"
+repository = "https://github.com/cirious-studio/cirious_codex_term"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+
+keywords = ["terminal", "ansi", "color", "cli", "style"]
+categories = ["command-line-interface"]
 
 [dependencies]

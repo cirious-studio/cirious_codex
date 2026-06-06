@@ -1,90 +1,244 @@
-use crate::color::Color;
-use crate::style::Style;
+use crate::{color::Color, styled::StyledText};
+use std::fmt::Display;
 
-/// Allows formatting strings effortlessly
-pub trait StyleExt {
-  fn color(self, color: Color) -> String;
-  fn bg(self, color: Color) -> String;
+/// Extension trait providing an elegant builder API for terminal styling.
+///
+/// This trait is implemented for all types that implement `std::fmt::Display`,
+/// allowing for zero-overhead chained formatting.
+///
+/// # Examples
+///
+/// ```rust
+/// use cirious_codex_term::traits::StyleExt;
+///
+/// let styled_string = "Success".green().bold();
+/// assert_eq!(styled_string.to_string(), "\x1b[1m\x1b[32mSuccess\x1b[0m");
+/// ```
+pub trait StyleExt: Sized {
+  /// Applies a foreground color to the text.
+  fn color(self, color: Color) -> StyledText<Self>;
+  /// Applies a background color to the text.
+  fn bg(self, color: Color) -> StyledText<Self>;
 
-  // Quick colors
-  fn black(self) -> String;
-  fn red(self) -> String;
-  fn green(self) -> String;
-  fn yellow(self) -> String;
-  fn blue(self) -> String;
-  fn magenta(self) -> String;
-  fn cyan(self) -> String;
-  fn white(self) -> String;
-  fn rgb(self, r: u8, g: u8, b: u8) -> String;
+  /// Formats the text with a black foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".black());
+  /// ```
+  fn black(self) -> StyledText<Self>;
 
-  // Quick styles
-  fn bold(self) -> String;
-  fn italic(self) -> String;
-  fn underline(self) -> String;
-  fn blink(self) -> String;
-  fn strikethrough(self) -> String;
-  fn dim(self) -> String;
+  /// Formats the text with a red foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".red());
+  /// ```
+  fn red(self) -> StyledText<Self>;
 
-  fn reset(self) -> String;
+  /// Formats the text with a green foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".green());
+  /// ```
+  fn green(self) -> StyledText<Self>;
+
+  /// Formats the text with a yellow foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".yellow());
+  /// ```
+  fn yellow(self) -> StyledText<Self>;
+
+  /// Formats the text with a blue foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".blue());
+  /// ```
+  fn blue(self) -> StyledText<Self>;
+
+  /// Formats the text with a magenta foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".magenta());
+  /// ```
+  fn magenta(self) -> StyledText<Self>;
+
+  /// Formats the text with a cyan foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".cyan());
+  /// ```
+  fn cyan(self) -> StyledText<Self>;
+
+  /// Formats the text with a white foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".white());
+  /// ```
+  fn white(self) -> StyledText<Self>;
+
+  /// Formats the text with a red foreground.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".rgb(255, 0, 0));
+  /// ```
+  fn rgb(self, r: u8, g: u8, b: u8) -> StyledText<Self>;
+
+  /// Formats the text with a bold style.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".bold());
+  /// ```
+  fn bold(self) -> StyledText<Self>;
+
+  /// Formats the text with a italic style.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".italic());
+  /// ```
+  fn italic(self) -> StyledText<Self>;
+
+  /// Formats the text with a underline style.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".underline());
+  /// ```
+  fn underline(self) -> StyledText<Self>;
+
+  /// Formats the text with a blink style.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".blink());
+  /// ```
+  fn blink(self) -> StyledText<Self>;
+
+  /// Formats the text with a strikethrough style.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".strikethrough());
+  /// ```
+  fn strikethrough(self) -> StyledText<Self>;
+
+  /// Formats the text with a dim style.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".dim());
+  /// ```
+  fn dim(self) -> StyledText<Self>;
+
+  /// Resets the text styles.
+  ///
+  /// # Examples
+  ///
+  /// ```rust
+  /// use cirious_codex_term::traits::StyleExt;
+  /// println!("{}", "Everything is OK".reset());
+  /// ```
+  fn reset(self) -> StyledText<Self>;
 }
 
-impl<T: AsRef<str>> StyleExt for T {
-  fn color(self, color: Color) -> String {
-    format!("{}{}{}", color.to_fg_str(), self.as_ref(), "\x1b[0m")
+// The Magic: We implement it for ALL types T that implement Display
+impl<T: Display> StyleExt for T {
+  fn color(self, color: Color) -> StyledText<Self> {
+    StyledText::new(self).color(color)
   }
 
-  fn bg(self, color: Color) -> String {
-    format!("{}{}{}", color.to_bg_str(), self.as_ref(), "\x1b[0m")
+  fn bg(self, color: Color) -> StyledText<Self> {
+    StyledText::new(self).bg(color)
   }
 
-  fn black(self) -> String {
-    self.color(Color::Black)
+  fn black(self) -> StyledText<Self> {
+    StyledText::new(self).black()
   }
-  fn red(self) -> String {
-    self.color(Color::Red)
+  fn red(self) -> StyledText<Self> {
+    StyledText::new(self).red()
   }
-  fn green(self) -> String {
-    self.color(Color::Green)
+  fn green(self) -> StyledText<Self> {
+    StyledText::new(self).green()
   }
-  fn yellow(self) -> String {
-    self.color(Color::Yellow)
+  fn yellow(self) -> StyledText<Self> {
+    StyledText::new(self).yellow()
   }
-  fn blue(self) -> String {
-    self.color(Color::Blue)
+  fn blue(self) -> StyledText<Self> {
+    StyledText::new(self).blue()
   }
-  fn magenta(self) -> String {
-    self.color(Color::Magenta)
+  fn magenta(self) -> StyledText<Self> {
+    StyledText::new(self).magenta()
   }
-  fn cyan(self) -> String {
-    self.color(Color::Cyan)
+  fn cyan(self) -> StyledText<Self> {
+    StyledText::new(self).cyan()
   }
-  fn white(self) -> String {
-    self.color(Color::White)
+  fn white(self) -> StyledText<Self> {
+    StyledText::new(self).white()
   }
-  fn rgb(self, r: u8, g: u8, b: u8) -> String {
-    self.color(Color::Rgb(r, g, b))
-  }
-
-  fn bold(self) -> String {
-    format!("{}{}{}", Style::Bold.to_str(), self.as_ref(), "\x1b[0m")
-  }
-  fn italic(self) -> String {
-    format!("{}{}{}", Style::Italic.to_str(), self.as_ref(), "\x1b[0m")
-  }
-  fn underline(self) -> String {
-    format!("{}{}{}", Style::Underline.to_str(), self.as_ref(), "\x1b[0m")
-  }
-  fn blink(self) -> String {
-    format!("{}{}{}", Style::Blink.to_str(), self.as_ref(), "\x1b[0m")
-  }
-  fn strikethrough(self) -> String {
-    format!("{}{}{}", Style::Strikethrough.to_str(), self.as_ref(), "\x1b[0m")
-  }
-  fn dim(self) -> String {
-    format!("{}{}{}", Style::Dim.to_str(), self.as_ref(), "\x1b[0m")
+  fn rgb(self, r: u8, g: u8, b: u8) -> StyledText<Self> {
+    StyledText::new(self).rgb(r, g, b)
   }
 
-  fn reset(self) -> String {
-    format!("{}{}", self.as_ref(), Style::Reset.to_str())
+  fn bold(self) -> StyledText<Self> {
+    StyledText::new(self).bold()
+  }
+  fn italic(self) -> StyledText<Self> {
+    StyledText::new(self).italic()
+  }
+  fn underline(self) -> StyledText<Self> {
+    StyledText::new(self).underline()
+  }
+  fn blink(self) -> StyledText<Self> {
+    StyledText::new(self).blink()
+  }
+  fn strikethrough(self) -> StyledText<Self> {
+    StyledText::new(self).strikethrough()
+  }
+  fn dim(self) -> StyledText<Self> {
+    StyledText::new(self).dim()
+  }
+
+  fn reset(self) -> StyledText<Self> {
+    StyledText::new(self).reset()
   }
 }

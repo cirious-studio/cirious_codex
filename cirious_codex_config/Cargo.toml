@@ -1,0 +1,45 @@
+[package]
+name = "cirious_codex_config"
+version = "0.1.0"
+authors = ["Cirious Studio <cirious.studio@proton.me>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+description = "A robust, foundational configuration management framework for the Cirious ecosystem."
+homepage = "https://github.com/cirious-studio/cirious_codex_config"
+repository = "https://github.com/cirious-studio/cirious_codex_config"
+documentation = "https://docs.rs/cirious_codex_config"
+keywords = ["config", "settings", "serde", "configuration", "framework"]
+categories = ["config", "development-tools"]
+exclude = [".github/", ".gitignore"]
+
+[dependencies]
+cirious_codex_result = { path = "../cirious_codex_result" }
+cirious_codex_term = { path = "../cirious_codex_term", optional = true }
+cirious_codex_logger = { path = "../cirious_codex_logger", optional = true } 
+
+ron = "0.12.1"
+serde_json = { version = "1.0" }
+serde = { version = "1.0", features = ["derive"] }
+
+toml = { version = "1.0", optional = true }
+serde_yaml = { version = "0.9", optional = true }
+
+[features]
+default = []
+toml = ["dep:toml"]
+yaml = ["dep:serde_yaml"]
+term = ["dep:cirious_codex_term"]
+logger = ["dep:cirious_codex_logger"]
+full = ["toml", "yaml", "term", "logger"]
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+pedantic = "warn"
+nursery = "warn"
+unwrap_used = "warn"
+expect_used = "warn"
