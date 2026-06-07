@@ -8,7 +8,7 @@ The core of the configuration system is the `ConfigBuilder`. It allows you to pr
 
 ```rust
 use cirious_codex::codex_config::{ConfigBuilder, Deserialize};
-use cirious_codex_config::format::ConfigFormat;
+use cirious_codex::codex_config::format::ConfigFormat;
 
 #[derive(Deserialize)]
 struct AppConfig {

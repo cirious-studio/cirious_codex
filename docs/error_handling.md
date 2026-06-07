@@ -15,7 +15,7 @@ When you use `CodexError::builder()`, it automatically injects `#[track_caller]`
 You can chain builder methods to provide hints and structured metadata:
 
 ```rust
-use cirious_codex_result::CodexError;
+use cirious_codex::codex_result::CodexError;
 
 fn connect_db() -> Result<(), CodexError> {
     Err(
@@ -34,7 +34,7 @@ Success states aren't left behind. Wrapping your success values in a `CodexOk` c
 The `codex_ok!` macro provides an ergonomic way to return successes:
 
 ```rust
-use cirious_codex_result::{codex_ok, Result};
+use cirious_codex::codex_result::{codex_ok, Result};
 
 fn compute_data() -> Result<u32> {
     // ... complex logic ...

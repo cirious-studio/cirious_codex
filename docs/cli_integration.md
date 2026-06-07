@@ -20,14 +20,15 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-cirious_codex_cli = { version = "0.1.0", features = ["config_full"] }
+# Example: features = ["cli", "config_toml", "config_yaml"]
+cirious_codex_cli = { version = "0.1.0", features = ["cli", "cli_config"] }
 serde = { version = "1.0", features = ["derive"] }
 clap = { version = "4.5", features = ["derive"] }
 ```
 ## Basic Implementation
 
 ```rust
-use cirious_codex_cli::{execute_cli_with_config, CodexCommand, GlobalArgs};
+use cirious_codex::codex_cli::{execute_cli_with_config, CodexCommand, GlobalArgs};
 use clap::{Parser, Subcommand};
 use serde::Deserialize;
 

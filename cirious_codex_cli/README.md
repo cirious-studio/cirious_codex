@@ -34,7 +34,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-cirious_codex_cli = "0.1.0"
+cirious_codex_cli = "0.1.1"
 clap = { version = "4.5", features = ["derive"] }
 serde = { version = "1.0", features = ["derive"] }
 ```
@@ -193,18 +193,17 @@ cargo run --example 02_robust_microservice -- --verbose --config examples/resour
 ## 🚧 Current Status & Roadmap
 
 ### ✅ v0.1.0 — Completed
-
 - [x] Design the argument parsing and sub-command routing API.
 - [x] Implement automatic initialization of `cirious_codex_logger` dispatchers based on CLI flags.
 - [x] Implement automated configuration loading bridging with `cirious_codex_config`.
 - [x] Create robust examples demonstrating rapid application scaffolding.
+- [x] Publish `cirious_codex_cli` to `crates.io` as a standalone crate.
 
 ### 🔭 v0.2.0 — Planned
 
 - [ ] Add a global `init_cli!` macro for zero-boilerplate entrypoints.
 - [ ] Implement a `Result`-aware handler variant (`execute_cli_result`) that integrates with `CodexError`.
 - [ ] Add support for `APP_*` environment variable overrides via `cirious_codex_config`'s env prefix API.
-- [ ] Publish `cirious_codex_cli` to `crates.io` as a standalone crate.
 
 ---
 

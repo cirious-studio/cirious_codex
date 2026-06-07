@@ -37,14 +37,27 @@ result = ["dep:cirious_codex_result"]
 config = ["dep:cirious_codex_config"]
 term = ["dep:cirious_codex_term"]
 logger = ["dep:cirious_codex_logger", "term"]
-cli = ["dep:cirious_codex_cli"]
-cli_config = ["cli", "cirious_codex_cli/config"]
-cli_config_json = ["cli_config", "cirious_codex_cli/config_json"]
-cli_config_toml = ["cli_config", "cirious_codex_cli/config_toml"]
-cli_config_yaml = ["cli_config", "cirious_codex_cli/config_yaml"]
-cli_config_full = ["cli_config", "cirious_codex_cli/config_full"]
 
-full = ["config", "logger", "result", "term", "cli_config"]
+#Cirious Codex Cli Features
+cli = ["dep:cirious_codex_cli"]
+
+cli_config = ["cli", "cirious_codex_cli/config"]
+cli_config_toml = ["cli", "cirious_codex_cli/config_toml"]
+cli_config_yaml = ["cli", "cirious_codex_cli/config_yaml"]
+cli_config_term = ["cli", "cirious_codex_cli/config_term"]
+cli_config_logger = ["cli", "cirious_codex_cli/config_logger"]
+
+full = [
+    "config",
+    "logger",
+    "result",
+    "term",
+    "cli",
+    "cli_config_toml",
+    "cli_config_yaml",
+    "cli_config_term",
+    "cli_config_logger"
+]
 
 [workspace.dependencies]
 cirious_codex_config = { path = "cirious_codex_config" }

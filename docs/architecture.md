@@ -13,7 +13,8 @@ graph TD
     B -.->|feature = "config"| D(cirious_codex_config)
     B -.->|feature = "result"| E(cirious_codex_result)
     B -.->|feature = "term"| F(cirious_codex_term)
-    
+    B -.->|feature = "cli"| G(cirious_codex_cli)
+
     C -->|Uses| F
     D -->|Uses| E
     end
@@ -25,6 +26,7 @@ graph TD
 2. **`cirious_codex_logger`**: Implements the macro interface (`info!`, `error!`), and coordinates `Dispatchers` and `Formatters`.
 3. **`cirious_codex_result`**: Replaces the standard `Result` type with a hyper-detailed custom wrapper `CodexError` and `CodexOk`.
 4. **`cirious_codex_term`**: A lightweight library to handle ANSI terminal colors, styles, and advanced terminal formatting without pulling heavy external dependencies.
+5. **`cirious_codex_cli`**: Automates argument parsing, logger bootstrapping, and configuration loading.
 
 ## The Facade Advantage
 

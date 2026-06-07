@@ -9,10 +9,10 @@
 //! You can run this example with:
 //! `cargo run --example 05_full_ecosystem --all-features`
 
+use cirious_codex::codex_config::format::ConfigFormat;
 use cirious_codex::codex_config::{ConfigBuilder, Deserialize};
 use cirious_codex::codex_logger::{Dispatcher, Level, Record, StdoutDispatcher, StyledTerminalFormatter};
-use cirious_codex_config::format::ConfigFormat;
-use cirious_codex_result::{codex_ok, CodexError, Result};
+use cirious_codex::codex_result::{codex_ok, CodexError, Result};
 use std::env;
 
 #[derive(Debug, Deserialize)]

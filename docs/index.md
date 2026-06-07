@@ -4,7 +4,7 @@ Welcome to the official documentation for **Cirious Codex**, the foundational di
 
 ## Overview
 
-The `cirious_codex` workspace provides a robust set of modular crates designed to handle the core operational requirements of any high-performance application. It guarantees consistent error tracing, rich terminal interactions, structured configuration parsing, and highly customizable logging.
+The `cirious_codex` workspace provides a robust set of modular crates designed to handle the core operational requirements of any high-performance application. It guarantees consistent error tracing, rich terminal interactions, structured configuration parsing, and highly customizable logging, as well as CLI and microservices entrypoints.
 
 ## Core Modules
 
@@ -22,6 +22,9 @@ The ecosystem is divided into the following specialized modules:
 - **[Logging & Observability](logging.md)**
   Dive into custom `Dispatchers` and `Formatters` to shape your logs for the terminal or structured external observability platforms.
 
+- **[CLI & Application Entrypoints](cli.md)**
+  Learn how to use `CodexCommand` to bootstrap your application with global flags and sub-command routing.
+
 ## Getting Started
 
 To get a hands-on feel for how these modules work, we highly recommend checking out the `examples/` directory in the root of the project:
@@ -29,4 +32,5 @@ To get a hands-on feel for how these modules work, we highly recommend checking 
 - `01_quickstart.rs`
 - `02_custom_logging.rs`
 - `03_loading_config.rs`
-- `04_full_ecosystem.rs`
+- `04_custom_cli.rs`
+- `05_full_ecosystem.rs`
