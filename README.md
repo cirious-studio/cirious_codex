@@ -4,7 +4,7 @@
 
 **Next-Generation Rust Tooling & Ecosystem Bedrock**
 
-[![Status](https://img.shields.io/badge/Status-v0.1.0_Released-success.svg)]() [![CI](https://github.com/cirious-studio/cirious_codex/actions/workflows/ci.yml/badge.svg)](https://github.com/cirious-studio/cirious_codex/actions/workflows/ci.yml) [![Language](https://img.shields.io/badge/Language-Rust-black?logo=rust)](https://www.rust-lang.org/) [![License](https://img.shields.io/badge/License-MIT%2FApache-blue.svg)](#-license)
+[![Status](https://img.shields.io/badge/Status-v0.1.0_Released-success.svg)]() [![CI](https://github.com/cirious-studio/cirious_codex/actions/workflows/ci.yml/badge.svg)](https://github.com/cirious-studio/cirious_codex/actions/workflows/ci.yml) [![Crates.io](https://img.shields.io/crates/v/cirious_codex.svg)](https://crates.io/crates/cirious_codex) [![Docs.rs](https://docs.rs/cirious_codex/badge.svg)](https://docs.rs/cirious_codex) [![Language](https://img.shields.io/badge/Language-Rust-black?logo=rust)](https://www.rust-lang.org/) [![License](https://img.shields.io/badge/License-MIT%2FApache-blue.svg)](#-license)
 
 <br />
 
@@ -31,6 +31,7 @@ The workspace is composed of the following core libraries:
 - **`cirious_codex_result`**: A revolutionary approach to error handling. `CodexError` captures system backtraces, exact code locations, and actionable diagnostic suggestions natively.
 - **`cirious_codex_term`**: A lightweight, dependency-free terminal styling utility for rich ANSI text outputs.
 - **`cirious_codex_cli`**: Premier entrypoint library for building production-ready CLIs and microservices in the Cirious ecosystem, with automated argument parsing, logger bootstrapping, and configuration loading.
+- **`cirious_codex_metrics`**: A simplified application telemetry facade and native Prometheus exporter, offering decoupled metric recording (counters, gauges, histograms) with automated background listener scaffolding.
 
 ---
 
@@ -38,21 +39,29 @@ The workspace is composed of the following core libraries:
 
 We believe in documentation-driven development. To learn how to use the Cirious Codex ecosystem, please explore:
 
-- **[The Official Docs (`/docs`)](./docs/index.md)**: Deep dives into the architecture, configuration resolution, error handling, and logging dispatchers.
+- **[The Official Architecture (`/docs/architecture.md`)](./docs/architecture.md)**: A deep dive into how the internal components fit together seamlessly under the `cirious_codex` facade crate.
+- **[The Official Docs (`/docs/index.md`)](./docs/index.md)**: Deep dives into the architecture, configuration resolution, error handling, and logging dispatchers.
 - **[The Examples (`/examples`)](./examples)**: Ready-to-run code snippets showcasing how the modules operate independently and as a cohesive ecosystem (`cargo run --example 05_full_ecosystem --all-features`).
 
 ---
 
 ## 🚧 Roadmap
 
-Our initial bootstrap phase is complete. The current workspace focus moving forward includes:
+Our workspace follows a structured evolutionary path. With the foundational layer stabilized, we are shifting focus from core primitives to ecosystem expansion:
 
+**Phase 1: Foundation & Observability (v0.1.0 - Current Release)**
 - [x] Repository initialization and workspace declaration.
 - [x] Initial release of core data-oriented libraries (`logger`, `result`, `config`, `term`).
-- [x] Establishing strict CI/CD pipelines and professional integration tests.
-- [x] Defining architectural contribution guidelines and comprehensive documentation.
-- [x] Architect and integrate a new `cirious_codex_cli` crate for rapid CLI application scaffolding.
-- [ ] Develop `cirious_codex_metrics` for unified telemetry and Prometheus exposition.
+- [x] Architect and integrate `cirious_codex_cli` for rapid application scaffolding.
+- [x] Develop `cirious_codex_metrics` for unified telemetry and Prometheus exposition.
+- [x] Establish strict CI/CD pipelines and professional workspace integration tests.
+- [x] Define architectural contribution guidelines and comprehensive documentation.
+- [x] Publish the unified `cirious_codex` facade to `crates.io` as a workspace.
+
+**Phase 2: Ecosystem Expansion (Upcoming)**
+- [ ] **`cirious_codex_net`**: Frictionless HTTP/microservice integrations (standardized middlewares, trace injection, and automatic RFC 7807 error responses).
+- [ ] **`cirious_codex_fs`**: Resilient, async-first file system I/O wrappers returning rich, actionable `CodexError` diagnostics.
+- [ ] **`cirious_codex_tasks`**: In-memory background job orchestrator with built-in Prometheus telemetry and automated logging.
 
 ---
 

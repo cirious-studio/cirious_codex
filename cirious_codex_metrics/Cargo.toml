@@ -1,0 +1,36 @@
+[package]
+name = "cirious_codex_metrics"
+version = "0.1.0"
+authors = ["Cirious Studio <cirious.studio@proton.me>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+description = "Metrics collection, aggregation, and visualization utilities for the Cirious ecosystem."
+keywords = ["metrics", "tracing", "observability", "prometheus", "otel"]
+categories = ["development-tools", "development-tools::profiling"]
+homepage = "https://github.com/cirious-studio/cirious_codex_metrics"
+repository = "https://github.com/cirious-studio/cirious_codex_metrics"
+documentation = "https://docs.rs/cirious_codex_metrics"
+exclude = [".github/", ".gitignore"]
+
+[dependencies]
+cirious_codex_logger = { workspace = true }
+cirious_codex_result = { workspace = true }
+metrics = "0.24.6"
+
+metrics-exporter-prometheus = { version = "0.18.3", features = ["http-listener"] }
+tokio = { version = "1.52", features = ["full"] }
+
+[dev-dependencies]
+serde = { version = "1.0", features = ["derive"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+pedantic = "warn"
+nursery = "warn"
+unwrap_used = "warn"
+expect_used = "warn"

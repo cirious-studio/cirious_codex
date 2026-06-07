@@ -22,8 +22,11 @@ The ecosystem is divided into the following specialized modules:
 - **[Logging & Observability](logging.md)**
   Dive into custom `Dispatchers` and `Formatters` to shape your logs for the terminal or structured external observability platforms.
 
-- **[CLI & Application Entrypoints](cli.md)**
+- **[CLI & Application Entrypoints](cli_integration.md)**
   Learn how to use `CodexCommand` to bootstrap your application with global flags and sub-command routing.
+
+- **[Telemetry & Prometheus Exposition](telemetry.md)**
+  Learn how to use `CodexMetrics` to collect, aggregate, and visualize metrics for your application.
 
 ## Getting Started
 
@@ -33,4 +36,5 @@ To get a hands-on feel for how these modules work, we highly recommend checking 
 - `02_custom_logging.rs`
 - `03_loading_config.rs`
 - `04_custom_cli.rs`
-- `05_full_ecosystem.rs`
+- `05_metrics_build.rs`
+- `06_full_ecosystem.rs`

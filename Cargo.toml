@@ -6,6 +6,7 @@ members = [
     "cirious_codex_result",
     "cirious_codex_term",
     "cirious_codex_cli",
+    "cirious_codex_metrics",
 ]
 
 [workspace.package]
@@ -15,6 +16,10 @@ authors = ["Cirious Studio <cirious.studio@proton.me>"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/cirious-studio/cirious_codex"
 homepage = "https://github.com/cirious-studio/cirious_codex"
+readme = "README.md"
+description = "A unified, next-generation modular toolset and facade framework providing config, logging, diagnostics, CLI scaffolding, and metrics."
+keywords = ["framework", "config", "logging", "metrics", "cli"]
+categories = ["development-tools", "asynchronous"]
 
 [package]
 name = "cirious_codex"
@@ -24,6 +29,10 @@ authors.workspace = true
 license.workspace = true
 repository.workspace = true
 homepage.workspace = true
+description.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
 
 [dependencies]
 cirious_codex_config = { workspace = true, optional = true }
@@ -31,16 +40,17 @@ cirious_codex_logger = { workspace = true, optional = true }
 cirious_codex_result = { workspace = true, optional = true }
 cirious_codex_term = { workspace = true, optional = true }
 cirious_codex_cli = { workspace = true, optional = true }
+cirious_codex_metrics = { workspace = true, optional = true }
 
 [features]
 result = ["dep:cirious_codex_result"]
 config = ["dep:cirious_codex_config"]
 term = ["dep:cirious_codex_term"]
 logger = ["dep:cirious_codex_logger", "term"]
+metrics = ["dep:cirious_codex_metrics"]
 
-#Cirious Codex Cli Features
+# Cirious Codex Cli Features
 cli = ["dep:cirious_codex_cli"]
-
 cli_config = ["cli", "cirious_codex_cli/config"]
 cli_config_toml = ["cli", "cirious_codex_cli/config_toml"]
 cli_config_yaml = ["cli", "cirious_codex_cli/config_yaml"]
@@ -52,6 +62,7 @@ full = [
     "logger",
     "result",
     "term",
+    "metrics",
     "cli",
     "cli_config_toml",
     "cli_config_yaml",
@@ -60,11 +71,12 @@ full = [
 ]
 
 [workspace.dependencies]
-cirious_codex_config = { path = "cirious_codex_config" }
-cirious_codex_logger = { path = "cirious_codex_logger" }
-cirious_codex_result = { path = "cirious_codex_result" }
-cirious_codex_term = { path = "cirious_codex_term" }
-cirious_codex_cli = { path = "cirious_codex_cli" }
+cirious_codex_config = { path = "cirious_codex_config", version = "0.1.0", default-features = false }
+cirious_codex_logger = { path = "cirious_codex_logger", version = "0.1.0", default-features = false }
+cirious_codex_result = { path = "cirious_codex_result", version = "0.1.0", default-features = false }
+cirious_codex_term = { path = "cirious_codex_term", version = "0.1.0", default-features = false }
+cirious_codex_cli = { path = "cirious_codex_cli", version = "0.1.1", default-features = false }
+cirious_codex_metrics = { path = "cirious_codex_metrics", version = "0.1.0", default-features = false }
 
 [dev-dependencies]
 cirious_codex = { path = ".", features = ["full"] }
@@ -76,7 +88,6 @@ missing_docs = "warn"
 unsafe_code = "warn"
 
 [workspace.lints.clippy]
-# Example clippy rules for a professional workspace
 all = "warn"
 pedantic = "warn"
 nursery = "warn"

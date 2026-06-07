@@ -16,4 +16,4 @@ keywords = ["logging", "logger", "terminal", "observability", "tracing"]
 missing_docs = "warn"
 
 [dependencies]
-cirious_codex_term = { path = "../cirious_codex_term" }
+cirious_codex_term = { workspace = true }

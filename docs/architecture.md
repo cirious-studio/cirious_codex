@@ -9,11 +9,12 @@ graph TD
     A[User Application] -->|Depends On| B[cirious_codex Facade]
     
     subgraph Codex Ecosystem
-    B -.->|feature = "logger"| C(cirious_codex_logger)
-    B -.->|feature = "config"| D(cirious_codex_config)
-    B -.->|feature = "result"| E(cirious_codex_result)
-    B -.->|feature = "term"| F(cirious_codex_term)
-    B -.->|feature = "cli"| G(cirious_codex_cli)
+    B -.->|'feature = logger'| C(cirious_codex_logger)
+    B -.->|'feature = config'| D(cirious_codex_config)
+    B -.->|'feature = result'| E(cirious_codex_result)
+    B -.->|'feature = term'| F(cirious_codex_term)
+    B -.->|'feature = cli'| G(cirious_codex_cli)
+    B -.->|'feature = metrics'| H(cirious_codex_metrics)
 
     C -->|Uses| F
     D -->|Uses| E
@@ -27,6 +28,7 @@ graph TD
 3. **`cirious_codex_result`**: Replaces the standard `Result` type with a hyper-detailed custom wrapper `CodexError` and `CodexOk`.
 4. **`cirious_codex_term`**: A lightweight library to handle ANSI terminal colors, styles, and advanced terminal formatting without pulling heavy external dependencies.
 5. **`cirious_codex_cli`**: Automates argument parsing, logger bootstrapping, and configuration loading.
+6. **`cirious_codex_metrics`**: Handles metric collection, aggregation, and Prometheus exposition.
 
 ## The Facade Advantage
 
