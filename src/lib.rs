@@ -52,3 +52,7 @@ pub use cirious_codex_result as codex_result;
 #[cfg(feature = "term")]
 #[doc(inline)]
 pub use cirious_codex_term as codex_term;
+
+#[cfg(feature = "cli")]
+#[doc(inline)]
+pub use cirious_codex_cli as codex_cli;

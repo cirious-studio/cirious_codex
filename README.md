@@ -20,6 +20,8 @@
 
 Through the elegant use of the **Facade Pattern**, consumers only need to import the single `cirious_codex` crate. Under the hood, feature flags seamlessly orchestrate specialized, hyper-optimized micro-crates.
 
+---
+
 ## 🧱 Ecosystem Crates
 
 The workspace is composed of the following core libraries:
@@ -28,13 +30,16 @@ The workspace is composed of the following core libraries:
 - **`cirious_codex_logger`**: The ultimate observability bedrock, providing customizable `Formatters` (JSON, Human, Styled) and `Dispatchers`.
 - **`cirious_codex_result`**: A revolutionary approach to error handling. `CodexError` captures system backtraces, exact code locations, and actionable diagnostic suggestions natively.
 - **`cirious_codex_term`**: A lightweight, dependency-free terminal styling utility for rich ANSI text outputs.
+- **`cirious_codex_cli`**: Premier entrypoint library for building production-ready CLIs and microservices in the Cirious ecosystem, with automated argument parsing, logger bootstrapping, and configuration loading.
+
+---
 
 ## 📚 Documentation & Examples
 
 We believe in documentation-driven development. To learn how to use the Cirious Codex ecosystem, please explore:
 
 - **[The Official Docs (`/docs`)](./docs/index.md)**: Deep dives into the architecture, configuration resolution, error handling, and logging dispatchers.
-- **[The Examples (`/examples`)](./examples)**: Ready-to-run code snippets showcasing how the modules operate independently and as a cohesive ecosystem (`cargo run --example 04_full_ecosystem --all-features`).
+- **[The Examples (`/examples`)](./examples)**: Ready-to-run code snippets showcasing how the modules operate independently and as a cohesive ecosystem (`cargo run --example 05_full_ecosystem --all-features`).
 
 ---
 
@@ -46,7 +51,7 @@ Our initial bootstrap phase is complete. The current workspace focus moving forw
 - [x] Initial release of core data-oriented libraries (`logger`, `result`, `config`, `term`).
 - [x] Establishing strict CI/CD pipelines and professional integration tests.
 - [x] Defining architectural contribution guidelines and comprehensive documentation.
-- [ ] Architect and integrate a new `cirious_codex_cli` crate for rapid CLI application scaffolding.
+- [x] Architect and integrate a new `cirious_codex_cli` crate for rapid CLI application scaffolding.
 - [ ] Develop `cirious_codex_metrics` for unified telemetry and Prometheus exposition.
 
 ---
